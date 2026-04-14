@@ -1,16 +1,18 @@
+/* PC用 */
+
 table {
-margin-top:40px;
+  margin-top: 40px;
 }
 
 td {
-  width:630px;
+  width: 630px;
   vertical-align: top;
-  padding-bottom:60px;
+  padding-bottom: 60px;
 }
 
 summary {
-  font-size:30px;
-  margin-left:30px;
+  font-size: 30px;
+  margin-left: 30px;
   color: #ffffff;
   padding-left: 20px;
 }
@@ -20,11 +22,11 @@ a {
 }
 
 iframe {
-  margin-left:75px;
-  width:550px;
-  height:240px;
-  padding-top:5px;
-  padding-bottom:15px;
+  margin-left: 75px;
+  width: 550px;
+  height: 240px;
+  padding-top: 5px;
+  padding-bottom: 15px;
 }
 
 li {
@@ -37,7 +39,7 @@ li {
   border-radius: 5px;
   text-decoration: none;
   padding-left: 5px;
-  width:420px;
+  width: 420px;
 }
 
 .sum1 {
@@ -110,4 +112,112 @@ li {
 
 .if9 {
   background-color: #dcdcdc;
+}
+
+/* スマホ用 */
+
+@media screen and (max-width: 768px) {
+  summary {
+    font-size: 50px;
+    margin-top: 65px;
+    margin-left: 40px;
+    color: #ffffff;
+    padding-left: 30px;
+  }
+
+  a {
+    color: #ffffff;
+  }
+
+  iframe {
+    margin-left: 120px;
+    width: 710px;
+    height: 400px;
+    padding-bottom: 40px;
+  }
+
+  li {
+    font-size: 40px;
+    margin-top: 60px;
+    margin-left: 30px;
+  }
+
+  .botton {
+    border-radius: 15px;
+    text-decoration: none;
+    padding: 10px;
+    width: 600px;
+  }
+
+  .sum1 {
+    background-color: #dc143c;
+  }
+
+  .if1 {
+    background-color: #ffb6c1;
+  }
+
+  .sum2 {
+    background-color: #0000cd;
+  }
+
+  .if2 {
+    background-color: #afeeee;
+  }
+
+  .sum3 {
+    background-color: #88860b;
+  }
+
+  .if3 {
+    background-color: #eee8aa;
+  }
+
+  .sum4 {
+    background-color: #ff33cc;
+  }
+
+  .if4 {
+    background-color: #ffd5ec;
+  }
+
+  .sum5 {
+    background-color: #ff4f02;
+  }
+
+  .if5 {
+    background-color: #ffc7af;
+  }
+
+  .sum6 {
+    background-color: #228b22;
+  }
+
+  .if6 {
+    background-color: #edffbe;
+  }
+
+  .sum7 {
+    background-color: #a0522d;
+  }
+
+  .if7 {
+    background-color: #f0e68c;
+  }
+
+  .sum8 {
+    background-color: #9932cc;
+  }
+
+  .if8 {
+    background-color: #ee82ee;
+  }
+
+  .sum9 {
+    background-color: #708090;
+  }
+
+  .if9 {
+    background-color: #dcdcdc;
+  }
 }
