@@ -1,5 +1,3 @@
-/* PC用 */
-
 table {
   margin-top: 40px;
 }
@@ -83,7 +81,7 @@ li {
 }
 
 .sum6 {
-  background-color: 228b22;
+  background-color: #228b22;
 }
 
 .if6 {
@@ -112,4 +110,38 @@ li {
 
 .if9 {
   background-color: #dcdcdc;
+}
+
+@media (max-width: 900px) {
+  table, tr, td {
+    display: block;
+    width: 100%;
+  }
+
+  summary {
+    font-size: 50px;
+    margin-top: 65px;
+    margin-left: 40px;
+    padding-left: 30px;
+  }
+
+  iframe {
+    margin-left: 120px;
+    width: 710px;
+    height: 400px;
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+
+  li {
+    font-size: 40px;
+    margin-top: 60px;
+    margin-left: 30px;
+  }
+
+  .botton {
+    border-radius: 15px;
+    padding: 10px;
+    width: 600px;
+  }
 }
