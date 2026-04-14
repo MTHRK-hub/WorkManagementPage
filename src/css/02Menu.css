@@ -119,29 +119,29 @@ li {
   }
 
   summary {
-    font-size: 50px;
-    margin-top: 65px;
-    margin-left: 40px;
-    padding-left: 30px;
+    font-size: 6vw;
+    margin-top: 8vw;
+    margin-left: 4vw;
+    padding-left: 3vw;
   }
 
   iframe {
-    margin-left: 120px;
-    width: 710px;
-    height: 400px;
+    margin-left: 2%;
+    width: 94%;
+    height: 50vw;
     padding-top: 0;
-    padding-bottom: 40px;
+    padding-bottom: 5vw;
   }
 
   li {
-    font-size: 40px;
-    margin-top: 60px;
-    margin-left: 30px;
+    font-size: 5vw;
+    margin-top: 7vw;
+    margin-left: 3vw;
   }
 
   .botton {
     border-radius: 15px;
-    padding: 10px;
-    width: 600px;
+    padding: 1.5vw;
+    width: 75%;
   }
 }

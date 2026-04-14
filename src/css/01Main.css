@@ -52,40 +52,40 @@ table {
 
 @media (max-width: 900px) {
   body {
-    width: auto;
+    width: 100%;
     height: auto;
   }
 
   h1 {
-    font-size: 100px;
-    margin-top: 50px;
+    font-size: 10vw;
+    margin-top: 5vw;
   }
 
   .botton {
     border-radius: 50px;
-    width: 280px;
-    margin: 0px 50px;
-    font-size: 50px;
-    margin-bottom: 50px;
+    width: 40%;
+    margin: 0px 3%;
+    font-size: 5vw;
+    margin-bottom: 5vw;
   }
 
   .menu {
-    font-size: 50px;
-    width: 350px;
-    height: 60px;
+    font-size: 5vw;
+    width: 35%;
+    height: auto;
   }
 
   p {
-    width: 500px;
-    height: 50px;
-    padding: 10px;
-    font-size: 40px;
+    width: 50%;
+    height: auto;
+    padding: 1vw;
+    font-size: 4vw;
   }
 
   iframe {
-    width: 850px;
-    height: 1100px;
-    margin-bottom: 60px;
+    width: 98%;
+    height: 110vw;
+    margin-bottom: 6vw;
   }
 
   table, tr, td {
