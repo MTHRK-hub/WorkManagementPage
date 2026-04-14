@@ -1,0 +1,35 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="src/image/2.ico">
+    <link href="src/css/01Main.css" rel="stylesheet" />
+    <script type="text/javascript" src="src/js/main.js"></script>
+    <title>作業管理ページ</title> 
+  </head>
+  <body>
+    <h1>作業管理ページ</h1>
+    <table>
+      <tr>
+        <td>
+          <!-- 再読込ボタン -->
+          <input type="botton" class="botton" onClick="update()" value="再読込">
+        </td>
+        <td>
+          <!-- メニュー -->
+          <p class="menu">🍖 MENU 🍖</p>
+        </td>
+        <td>
+          <!-- 閉じるボタン -->
+          <input type="botton" class="botton" onClick="shutdown()" value="閉じる">
+        </td>
+      </tr>
+    </table>
+
+    <!-- メニュー項目 -->
+    <iframe src="src/html/00Menu_pc.html"></iframe>
+
+    <!-- 現在日時 -->
+    <p><span id="realtime"></span></p>    
+  </body>
+</html>
