@@ -33,42 +33,42 @@ li {
 /*メニューバー*/
 .sum1 {
   background-color: #dc143c;
-  border-bottom: solid 8px rgb(83, 0, 12);
+  border-bottom: solid 12px rgb(83, 0, 12);
 }
 
 .sum2 {
   background-color: #0000cd;
-  border-bottom: solid 8px #0101ab;
+  border-bottom: solid 12px #0101ab;
 }
 
 .sum3 {
   background-color: #88860b;
-  border-bottom: solid 8px #6a6803;
+  border-bottom: solid 12px #6a6803;
 }
 
 .sum4 {
   background-color: #ff33cc;
-  border-bottom: solid 8px #d917a8;
+  border-bottom: solid 12px #d917a8;
 }
 
 .sum5 {
   background-color: #ff4f02;
-  border-bottom: solid 8px #be430e;
+  border-bottom: solid 12px #be430e;
 }
 
 .sum6 {
   background-color: #228b22;
-  border-bottom: solid 8px #106110;
+  border-bottom: solid 12px #106110;
 }
 
 .sum7 {
   background-color: #a0522d;
-  border-bottom: solid 8px #6f3d26;
+  border-bottom: solid 12px #6f3d26;
 }
 
 .sum8 {
   background-color: #9932cc;
-  border-bottom: solid 8px #743095;
+  border-bottom: solid 12px #743095;
 }
 
 :is(.sum1, .sum2, .sum3, .sum4, .sum5, .sum6, .sum7, .sum8):active {
