@@ -40,74 +40,86 @@ li {
   width: 420px;
 }
 
+/*メニューバー*/
 .sum1 {
   background-color: #dc143c;
-}
-
-.if1 {
-  background-color: #ffb6c1;
+  border-bottom: solid 5px rgb(83, 0, 12);
 }
 
 .sum2 {
   background-color: #0000cd;
+  border-bottom: solid 5px #0101ab;
+}
+
+.sum3 {
+  background-color: #88860b;
+  border-bottom: solid 5px #6a6803;
+}
+
+.sum4 {
+  background-color: #ff33cc;
+  border-bottom: solid 5px #d917a8;
+}
+
+.sum5 {
+  background-color: #ff4f02;
+  border-bottom: solid 5px #be430e;
+}
+
+.sum6 {
+  background-color: #228b22;
+  border-bottom: solid 5px #106110;
+}
+
+.sum7 {
+  background-color: #a0522d;
+  border-bottom: solid 5px #6f3d26;
+}
+
+.sum8 {
+  background-color: #9932cc;
+  border-bottom: solid 5px #743095;
+}
+
+:is(.sum1, .sum2, .sum3, .sum4, .sum5, .sum6, .sum7, .sum8):active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  /*下に動く*/
+  transform: translateY(4px);
+  /*影を小さく*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+/*項目背景*/
+.if1 {
+  background-color: #ffb6c1;
 }
 
 .if2 {
   background-color: #afeeee;
 }
 
-.sum3 {
-  background-color: #88860b;
-}
-
 .if3 {
   background-color: #eee8aa;
-}
-
-.sum4 {
-  background-color: #ff33cc;
 }
 
 .if4 {
   background-color: #ffd5ec;
 }
 
-.sum5 {
-  background-color: #ff4f02;
-}
-
 .if5 {
   background-color: #ffc7af;
-}
-
-.sum6 {
-  background-color: 228b22;
 }
 
 .if6 {
   background-color: #edffbe;
 }
 
-.sum7 {
-  background-color: #a0522d;
-}
-
 .if7 {
   background-color: #f0e68c;
 }
 
-.sum8 {
-  background-color: #9932cc;
-}
-
 .if8 {
   background-color: #ee82ee;
-}
-
-.sum9 {
-  background-color: #708090;
-}
-
-.if9 {
-  background-color: #dcdcdc;
 }

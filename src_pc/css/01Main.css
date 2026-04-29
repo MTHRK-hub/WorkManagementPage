@@ -13,12 +13,24 @@ h1 {
 }
 
 .botton {
-  border-radius: 20px;
+  border-radius: 50px;
   background-color: #ffff00;
   text-align: center;
   width: 150px;
   margin: 0px 180px;
+  padding: 5px 5px;
   font-size: 25px;
+  border-bottom: solid 7px #627295;
+}
+
+.botton:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  /*下に動く*/
+  transform: translateY(4px);
+  /*影を小さく*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
 }
 
 .menu {
