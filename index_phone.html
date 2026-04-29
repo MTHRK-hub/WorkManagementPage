@@ -1,0 +1,24 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="src_phone/image/icon.png" type="image/png" />
+    <link href="src_phone/css/01Main.css" rel="stylesheet" />
+    <script type="text/javascript" src="src_phone/js/main.js"></script>
+    <title>作業管理ページ</title> 
+  </head>
+  <body>
+    <h1>作業管理ページ</h1>
+    <!-- 再読込ボタン -->
+    <input type="botton" class="botton" onClick="update()" value="再読込">
+    <!-- 閉じるボタン -->
+    <input type="botton" class="botton" onClick="shutdown()" value="閉じる">
+    
+    <!-- メニュー -->
+    <p class="menu">🍖 MENU 🍖</p>
+    <iframe src="src_phone/html/00Menu.html"></iframe>
+
+    <!-- 現在日時 -->
+    <p><span id="realtime"></span></p>    
+  </body>
+</html>

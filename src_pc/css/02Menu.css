@@ -1,16 +1,16 @@
 table {
-  margin-top: 40px;
+margin-top:40px;
 }
 
 td {
-  width: 630px;
+  width:630px;
   vertical-align: top;
-  padding-bottom: 60px;
+  padding-bottom:60px;
 }
 
 summary {
-  font-size: 30px;
-  margin-left: 30px;
+  font-size:30px;
+  margin-left:30px;
   color: #ffffff;
   padding-left: 20px;
 }
@@ -20,11 +20,11 @@ a {
 }
 
 iframe {
-  margin-left: 75px;
-  width: 550px;
-  height: 240px;
-  padding-top: 5px;
-  padding-bottom: 15px;
+  margin-left:75px;
+  width:550px;
+  height:240px;
+  padding-top:5px;
+  padding-bottom:15px;
 }
 
 li {
@@ -37,7 +37,7 @@ li {
   border-radius: 5px;
   text-decoration: none;
   padding-left: 5px;
-  width: 420px;
+  width:420px;
 }
 
 .sum1 {
@@ -81,7 +81,7 @@ li {
 }
 
 .sum6 {
-  background-color: #228b22;
+  background-color: 228b22;
 }
 
 .if6 {
@@ -110,38 +110,4 @@ li {
 
 .if9 {
   background-color: #dcdcdc;
-}
-
-@media (max-width: 900px) {
-  table, tr, td {
-    display: block;
-    width: 100%;
-  }
-
-  summary {
-    font-size: 6vw;
-    margin-top: 8vw;
-    margin-left: 4vw;
-    padding-left: 3vw;
-  }
-
-  iframe {
-    margin-left: 2%;
-    width: 94%;
-    height: 50vw;
-    padding-top: 0;
-    padding-bottom: 5vw;
-  }
-
-  li {
-    font-size: 5vw;
-    margin-top: 7vw;
-    margin-left: 3vw;
-  }
-
-  .botton {
-    border-radius: 15px;
-    padding: 1.5vw;
-    width: 75%;
-  }
 }
