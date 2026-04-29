@@ -15,7 +15,7 @@ h1 {
   background-color: #ffff00;
   text-align: center;
   width: 280px;
-  margin:0px 50px;
+  margin: 0px 50px;
   font-size: 50px;
   margin-bottom: 50px;
 }
@@ -43,5 +43,5 @@ iframe {
   width: 850px;
   height: 1100px;
   margin-bottom: 60px;
-  border:3px solid;
+  border: 3px solid;
 }
