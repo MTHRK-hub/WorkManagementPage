@@ -1,38 +1,48 @@
-<DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+<html lang="ja">
 
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="src_pc/image/icon.png" type="image/png" />
-    <link href="src_pc/css/01Main.css" rel="stylesheet" />
-    <script type="text/javascript" src="src_pc/js/main.js"></script>
-    <title>作業管理ページ</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <link href="src_pc/css/01Main.css" rel="stylesheet" />
+  <script type="text/javascript" src="src_pc/js/main.js" defer></script>
+  <title>作業管理ページ</title>
+</head>
 
-  <body>
-    <h1>作業管理ページ</h1>
-    <table>
-      <tr>
-        <td>
-          <!-- 再読込ボタン -->
-          <input type="botton" class="botton" onClick="update()" value="再読込">
-        </td>
-        <td>
-          <!-- メニュー -->
-          <p class="menu">🍖 MENU 🍖</p>
-        </td>
-        <td>
-          <!-- 閉じるボタン -->
-          <input type="botton" class="botton" onClick="shutdown()" value="閉じる">
-        </td>
-      </tr>
-    </table>
+<body>
+  <!-- 星空背景レイヤー -->
+  <div class="bg-stars"></div>
+  <div class="bg-mountains"></div>
 
-    <!-- メニュー項目 -->
-    <iframe src="src_pc/html/00Menu.html"></iframe>
+  <!-- 月 -->
+  <div class="moon" aria-hidden="true"></div>
 
-    <!-- 現在日時 -->
-    <p><span id="realtime"></span></p>
-  </body>
+  <!-- トップバー：再読込 / 現在日時 / 閉じる -->
+  <div class="topbar">
+    <input type="button" class="botton botton--moss" onClick="update()" value="↻ 再読込">
+    <p class="realtime-wrap"><span id="realtime"></span></p>
+    <input type="button" class="botton botton--red" onClick="shutdown()" value="閉じる ✕">
+  </div>
 
-  </html>
+  <!-- タイトルロゴ -->
+  <div class="title-block" id="titleBlock">
+    <p class="title-sub">─── DRAGON TASK ───</p>
+    <h1 class="title-logo">作業管理</h1>
+    <p class="title-tagline">THE ADVENTURE OF DAILY TASKS</p>
+  </div>
+
+  <!-- PRESS START 画面（オープニング） -->
+  <div class="press-start" id="pressStart">
+    <input type="button" class="botton botton--blue botton--lg press-start__text" onClick="startGame()" value="▶ PRESS START ◀">
+    <p class="press-start__hint">ENTER / SPACE / CLICK</p>
+    <p class="copyright">© 26XX TASK QUEST CORP.　ALL RIGHTS RESERVED.</p>
+  </div>
+
+  <!-- メニュー：ゲーム開始後に表示 -->
+  <div class="menu-window" id="menuWindow">
+    <p class="menu-heading">── SELECT YOUR QUEST ──</p>
+    <iframe src="src_pc/html/00Menu.html" class="menu-iframe"></iframe>
+    <p class="menu-hint">↑↓ MOVE　Z/ENTER CONFIRM</p>
+  </div>
+</body>
+
+</html>

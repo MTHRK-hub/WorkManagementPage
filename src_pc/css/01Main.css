@@ -1,63 +1,360 @@
-body {
-  background-image: url(../image/background.jpg);
-  text-align: center;
-  width: 1380px;
-  height: 720px;
-}
+/* ============================================================
+   作業管理ページ — レトロゲーム風 案3 / TITLE SCREEN
+   8bitファミコン風 × 押し出し3Dブロック × アースカラー
+   ============================================================ */
 
-h1 {
-  background-color: #ffffff;
-  font-size: 50px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+   @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
 
-.botton {
-  border-radius: 50px;
-  background-color: #ffff00;
-  text-align: center;
-  width: 150px;
-  margin: 0px 180px;
-  padding: 5px 5px;
-  font-size: 25px;
-  border-bottom: solid 7px #627295;
-}
-
-.botton:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  /*下に動く*/
-  transform: translateY(4px);
-  /*影を小さく*/
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-  border-bottom: none;
-}
-
-.menu {
-  font-weight: bold;
-  font-size: 30px;
-  width: 250px;
-  height: 40px;
-}
-
-p {
-  background-color: #ffffff;
-  width: 350px;
-  height: 35px;
-  margin: auto;
-  text-align: center;
-  font-size: 25px;
-  border: 3px solid;
-}
-
-iframe {
-  background-color: #ffffff;
-  width: 1300px;
-  height: 555px;
-  margin-bottom: 5px;
-  border: 3px solid;
-}
-
-table {
-  margin: auto;
-}
+   :root {
+     --rt-cream:    #f1e4c3;
+     --rt-cream-2:  #e6d4a3;
+     --rt-tan:      #c9a677;
+     --rt-tan-d:    #8b6a3e;
+     --rt-brown:    #5a3a1c;
+     --rt-brown-d:  #2e1c0a;
+     --rt-stone:    #6b6256;
+     --rt-stone-d:  #3a342c;
+     --rt-stone-l:  #968b78;
+     --rt-moss:     #5a7035;
+     --rt-moss-l:   #88a04a;
+     --rt-moss-d:   #2f3f18;
+     --rt-blood:    #a83232;
+     --rt-blood-d:  #5a1414;
+     --rt-gold:     #e8b830;
+     --rt-gold-d:   #8a6a10;
+     --rt-sky:      #3a6a8a;
+     --rt-ink:      #1a1208;
+   }
+   
+   * { box-sizing: border-box; }
+   
+   body {
+     margin-bottom: 0;
+     padding: 0;
+     width: 1400px;
+     height: 750px;
+     position: relative;
+     overflow: hidden;
+     background-color: #0c0a14;
+     font-family: 'DotGothic16', 'MS Gothic', monospace;
+     color: var(--rt-cream);
+     text-align: center;
+     image-rendering: pixelated;
+   }
+   
+   /* ============================================================
+      背景レイヤー
+      ============================================================ */
+   .bg-stars {
+     position: absolute;
+     inset: 0;
+     background-image:
+       radial-gradient(#fff8d0 1.5px, transparent 2px),
+       radial-gradient(#5a7aa0 1px, transparent 1.5px);
+     background-size: 96px 80px, 64px 48px;
+     background-position: 12px 8px, 40px 30px;
+     pointer-events: none;
+   }
+   
+   .bg-mountains {
+     position: absolute;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     height: 220px;
+     background-image:
+       linear-gradient(to top, #1a1430 0 30%, transparent 30%),
+       linear-gradient(135deg, transparent 49%, #261a3a 49% 51%, transparent 51%);
+     background-size: 100% 100%, 240px 200px;
+     background-repeat: no-repeat, repeat-x;
+     background-position: bottom, bottom;
+     pointer-events: none;
+   }
+   
+   /* 月 */
+   .moon {
+     position: absolute;
+     top: 60px;
+     right: 100px;
+     width: 80px;
+     height: 80px;
+     background: #f8e8b0;
+     border-radius: 4px;
+     box-shadow:
+       inset -8px -8px 0 #c8a050,
+       0 0 0 4px var(--rt-ink),
+       0 0 60px rgba(248, 232, 176, 0.3);
+     clip-path: polygon(12% 0, 88% 0, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0 88%, 0 12%);
+   }
+   
+   /* ============================================================
+      トップバー
+      ============================================================ */
+   .topbar {
+     position: absolute;
+     top: 22px;
+     left: 22px;
+     right: 22px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     z-index: 5;
+   }
+   
+   /* ============================================================
+      ボタン（押し出し3D）
+      ============================================================ */
+   .botton {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     background: var(--rt-gold);
+     color: var(--rt-ink);
+     border: 4px solid var(--rt-ink);
+     font-family: 'DotGothic16', monospace;
+     font-size: 15px;
+     font-weight: bold;
+     padding: 10px 16px;
+     cursor: pointer;
+     user-select: none;
+     text-align: center;
+     box-shadow:
+       inset -4px -4px 0 0 var(--rt-gold-d),
+       inset 4px 4px 0 0 rgba(255, 255, 255, 0.35),
+       4px 4px 0 0 var(--rt-ink),
+       8px 8px 0 0 var(--rt-brown-d);
+     transition: transform 60ms steps(2);
+   }
+   
+   .botton:hover {
+     filter: brightness(1.08);
+   }
+   
+   .botton:active {
+     transform: translate(4px, 4px);
+     box-shadow:
+       inset -4px -4px 0 0 var(--rt-gold-d),
+       inset 4px 4px 0 0 rgba(255, 255, 255, 0.35),
+       0 0 0 0 var(--rt-ink),
+       0 0 0 0 var(--rt-brown-d);
+   }
+   
+   .botton--moss {
+     background: var(--rt-moss-l);
+     box-shadow:
+       inset -4px -4px 0 0 var(--rt-moss-d),
+       inset 4px 4px 0 0 rgba(255, 255, 255, 0.35),
+       4px 4px 0 0 var(--rt-ink),
+       8px 8px 0 0 var(--rt-brown-d);
+   }
+   
+   .botton--red {
+     background: #e85a3a;
+     box-shadow:
+       inset -4px -4px 0 0 #8a1a10,
+       inset 4px 4px 0 0 rgba(255, 255, 255, 0.35),
+       4px 4px 0 0 var(--rt-ink),
+       8px 8px 0 0 var(--rt-brown-d);
+   }
+   
+   .botton--blue {
+     background: #5a8ad0;
+     color: var(--rt-cream);
+     box-shadow:
+       inset -4px -4px 0 0 #1a3a7a,
+       inset 4px 4px 0 0 rgba(255, 255, 255, 0.35),
+       4px 4px 0 0 var(--rt-ink),
+       8px 8px 0 0 var(--rt-brown-d);
+   }
+   
+   .botton--lg {
+     font-size: 20px;
+     padding: 16px 40px;
+   }
+   
+   /* ============================================================
+      現在日時表示
+      ============================================================ */
+   .realtime-wrap {
+     margin: 0;
+     padding: 0;
+     background: transparent;
+     border: none;
+     font-family: 'Press Start 2P', monospace;
+     font-size: 16px;
+     color: var(--rt-cream);
+     text-shadow: 2px 2px 0 var(--rt-ink);
+     letter-spacing: 0.04em;
+   }
+   
+   /* ============================================================
+      タイトルロゴ
+      ============================================================ */
+   .title-block {
+     position: absolute;
+     top: 180px;
+     left: 0;
+     right: 0;
+     text-align: center;
+     transition: top 400ms steps(8);
+   }
+   
+   .title-block.is-started {
+     top: 90px;
+   }
+   
+   .title-sub {
+     margin: 0 ;
+     font-family: 'Press Start 2P', monospace;
+     font-size: 14px;
+     color: var(--rt-gold);
+     text-shadow: 2px 2px 0 var(--rt-ink);
+     letter-spacing: 0.4em;
+     background: transparent;
+     border: none;
+   }
+   
+   .title-logo {
+     margin: 0;
+     font-family: 'DotGothic16', monospace;
+     font-weight: bold;
+     font-size: 80px;
+     line-height: 1;
+     color: var(--rt-gold);
+     letter-spacing: 0.05em;
+     background: transparent;
+     text-shadow:
+       0 4px 0 var(--rt-gold-d),
+       0 8px 0 var(--rt-brown-d),
+       4px 12px 0 var(--rt-ink),
+       8px 16px 0 var(--rt-ink),
+       0 0 30px rgba(232, 184, 48, 0.5);
+   }
+   
+   .title-tagline {
+     margin: 14px 0 0 0;
+     font-family: 'Press Start 2P', monospace;
+     font-size: 12px;
+     color: var(--rt-cream);
+     text-shadow: 3px 3px 0 var(--rt-ink);
+     letter-spacing: 0.2em;
+     background: transparent;
+     border: none;
+   }
+   
+   /* ============================================================
+      PRESS START 画面
+      ============================================================ */
+   .press-start {
+     position: absolute;
+     left: 0;
+     right: 0;
+     bottom: 30px;
+     text-align: center;
+   }
+   
+   .press-start.is-hidden {
+     display: none;
+   }
+   
+   .press-start__text {
+     margin: 0 0 120px 0;
+     font-family: 'Press Start 2P', monospace;
+     font-size: 20px;
+     color: var(--rt-cream);
+     text-shadow: 4px 4px 0 var(--rt-blood-d);
+     letter-spacing: 0.2em;
+     background: transparent;
+     border: none;
+     animation: rt-blink 1s steps(2) infinite;
+   }
+   
+   .press-start__hint {
+     margin: 0 0 24px 0;
+     font-family: 'Press Start 2P', monospace;
+     font-size: 11px;
+     color: var(--rt-stone-l);
+     letter-spacing: 0.2em;
+     background: transparent;
+     border: none;
+   }
+   
+   .press-start__btn-wrap {
+     margin-bottom: 28px;
+   }
+   
+   .copyright {
+     margin: 0;
+     font-family: 'Press Start 2P', monospace;
+     font-size: 12px;
+     color: var(--rt-stone-l);
+     background: transparent;
+     border: none;
+   }
+   
+   @keyframes rt-blink {
+     0%, 49%   { opacity: 1; }
+     50%, 100% { opacity: 0; }
+   }
+   
+   /* ============================================================
+      メニューウィンドウ（ゲーム開始後）
+      ============================================================ */
+   .menu-window {
+     position: absolute;
+     top: 220px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 1340px;
+     height: 470px;
+     background: var(--rt-stone-d);
+     color: var(--rt-cream);
+     border: 4px solid var(--rt-ink);
+     box-shadow:
+       inset 0 0 0 4px var(--rt-stone-d),
+       inset 0 0 0 8px var(--rt-cream),
+       inset 0 0 0 12px var(--rt-stone-d),
+       4px 4px 0 0 var(--rt-ink),
+       8px 8px 0 0 var(--rt-ink);
+     padding: 12px;
+     display: none;
+   }
+   
+   .menu-window.is-visible {
+     display: block;
+   }
+   
+   .menu-heading {
+     font-family: 'Press Start 2P', monospace;
+     font-size: 12px;
+     color: var(--rt-gold);
+     letter-spacing: 0.15em;
+     background: transparent;
+     border: none;
+     text-align: center;
+   }
+   
+   .menu-iframe {
+     display: block;
+     width: 1300px;
+     height: 370px;
+     background-color: var(--rt-cream);
+     border: 4px solid var(--rt-ink);
+     box-shadow: inset 0 4px 0 #fff, inset 0 -4px 0 var(--rt-tan-d);
+     margin: 0 0 12px 0;
+     position: relative;
+     left: 50%;
+     transform: translateX(-50%);
+   }
+   
+   .menu-hint {
+     margin: 0;
+     font-family: 'Press Start 2P', monospace;
+     font-size: 10px;
+     color: var(--rt-stone-l);
+     letter-spacing: 0.2em;
+     text-align: center;
+     background: transparent;
+     border: none;
+   }
+   
