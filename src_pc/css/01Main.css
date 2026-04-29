@@ -71,21 +71,20 @@
      pointer-events: none;
    }
    
-   /* 月 */
-   .moon {
+   /* UFO */
+   .ufo {
      position: absolute;
-     top: 60px;
-     right: 100px;
-     width: 80px;
-     height: 80px;
-     background: #f8e8b0;
+     top: 100px;
+     right: 80px;
+     width: 150px;
+     height: 100px;
+     background: url("../image/ufo.png") center / cover no-repeat;
      border-radius: 4px;
-     box-shadow:
-       inset -8px -8px 0 #c8a050,
-       0 0 0 4px var(--rt-ink),
-       0 0 60px rgba(248, 232, 176, 0.3);
-     clip-path: polygon(12% 0, 88% 0, 100% 12%, 100% 88%, 88% 100%, 12% 100%, 0 88%, 0 12%);
+     transition: top 400ms steps(8);
    }
+   .ufo.is-started {                                                                                    
+    top: 90px; 
+  }  
    
    /* ============================================================
       トップバー
