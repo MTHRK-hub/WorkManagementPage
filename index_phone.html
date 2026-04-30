@@ -1,27 +1,220 @@
-<DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+<html lang="ja">
 
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="src_phone/image/icon.png" type="image/png" />
-    <link href="src_phone/css/01Main.css" rel="stylesheet" />
-    <script type="text/javascript" src="src_phone/js/main.js"></script>
-    <title>作業管理ページ</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>作業管理の書</title>
+  <link rel="icon" href="assets/icon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="src_phone/css/styles.css" />
+</head>
 
-  <body>
-    <h1>作業管理ページ</h1>
-    <!-- 再読込ボタン -->
-    <input type="botton" class="botton" onClick="update()" value="再読込">
-    <!-- 閉じるボタン -->
-    <input type="botton" class="botton" onClick="shutdown()" value="閉じる">
+<body>
+  <div class="stars"></div>
+  <main class="book" id="book"></main>
+  <div class="toast" id="toast"><span class="arrow">▶</span><span id="toast-text"></span></div>
 
-    <!-- メニュー -->
-    <p class="menu">🍖 MENU 🍖</p>
-    <iframe src="src_phone/html/00Menu.html"></iframe>
+  <script src="src_phone/js/data.js"></script>
+  <script>
+    /* ---------- helpers ---------- */
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const el = (tag, cls, html) => {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (html != null) e.innerHTML = html;
+      return e;
+    };
 
-    <!-- 現在日時 -->
-    <p><span id="realtime"></span></p>
-  </body>
+    function showToast(msg, ms = 1600) {
+      const t = $("#toast"); $("#toast-text").textContent = msg;
+      t.classList.add("show");
+      clearTimeout(window.__tt);
+      window.__tt = setTimeout(() => t.classList.remove("show"), ms);
+    }
 
-  </html>
+    /* ---------- banner ---------- */
+    function renderBanner() {
+      return `
+      <section class="win banner">
+        <span class="corner tr"></span><span class="corner bl"></span>
+        <h1 class="banner-jp">◆ 作業管理の書 ◆</h1>
+        <p class="banner-en">THE BOOK OF ADVENTURE</p>
+        <div class="banner-divider"></div>
+        <p class="banner-en" style="margin-top:10px">~ TASK MANAGEMENT QUEST ~</p>
+      </section>`;
+    }
+
+    /* ---------- hero card ---------- */
+    function renderHero() {
+      return `
+      <section class="win hero">
+        <span class="corner tr"></span><span class="corner bl"></span>
+        <div class="portrait">
+          <img src="src_phone/image/image.png" alt="hero" onerror="this.style.display='none'" />
+        </div>
+        <div class="info">
+          <p class="name">ゆうしゃ わたし</p>
+          <p class="class">CLASS · TASK MASTER</p>
+          <div class="exp">
+            <span>EXP</span>
+            <div class="bar"><div class="fill"></div></div>
+            <span>6480/10000</span>
+          </div>
+        </div>
+      </section>`;
+    }
+
+    /* ---------- status (HP / MP / clock) ---------- */
+    function renderStatus() {
+      return `
+      <section class="win status">
+        <span class="corner tr"></span><span class="corner bl"></span>
+        <div class="row">
+          <span class="label">HP</span>
+          <div class="bar"><div class="fill hp"></div></div>
+          <span class="num">368/400</span>
+        </div>
+        <div class="row">
+          <span class="label">MP</span>
+          <div class="bar"><div class="fill mp"></div></div>
+          <span class="num">222/300</span>
+        </div>
+        <div class="full">
+          <span class="crystal"></span>
+          <span class="clock" id="realtime">----/--/--</span>
+        </div>
+      </section>`;
+    }
+
+    /* ---------- command list ---------- */
+    function renderCommands() {
+      const items = QUEST_DATA.map((q, i) => {
+        const numStr = String(q.id).padStart(2, "0");
+        const drawerItems = q.items.map((it) => {
+          const symbol = it.type === "巻物" ? "✎" : it.type === "宝箱" ? "❖" : "✦";
+          return `
+            <a class="item" href="${it.url}" target="_blank" rel="noopener"
+               style="--cat-color:${q.color}"
+               data-name="${it.name}">
+              <span class="icn">${symbol}</span>
+              <span class="nm">${it.name}</span>
+              <span class="tag">${it.type}</span>
+            </a>`;
+        }).join("");
+
+        return `
+        <div class="cmd" data-id="${q.id}" style="--cat-color:${q.color};border-color:${q.border}">
+          <div class="glyph" style="background:${q.color}">
+            <span class="num">${numStr}</span>
+            <span class="icon">${q.icon}</span>
+          </div>
+          <div class="text">
+            <p class="jp">${q.title}</p>
+            <p class="en">${q.subtitle.toUpperCase()}</p>
+          </div>
+          <div class="arrow">▶</div>
+        </div>
+        <div class="drawer" data-drawer="${q.id}" style="border-color:${q.border}">
+          <p class="desc">${q.desc}</p>
+          ${drawerItems}
+        </div>`;
+      }).join("");
+
+      return `
+      <p class="scroll">
+        ★ ▼ コマンドを えらんで けっていキー ▼ ★<br>
+        <span class="blink">◇</span> NOW LOADING THE WORLD <span class="blink">◇</span>
+      </p>
+      <div class="win" style="padding:10px">
+        <span class="corner tr"></span><span class="corner bl"></span>
+        <div class="cmd-grid">${items}</div>
+      </div>`;
+    }
+
+    /* ---------- bottom controls ---------- */
+    function renderControls() {
+      return `
+      <div class="win controls">
+        <span class="corner tr"></span><span class="corner bl"></span>
+        <button class="btn" id="btn-reload"><span class="ic">↻</span>さいよみこみ</button>
+        <button class="btn" id="btn-close"><span class="ic">✕</span>とじる</button>
+      </div>`;
+    }
+
+    /* ---------- mount ---------- */
+    function mount() {
+      const root = $("#book");
+      root.innerHTML =
+        renderBanner() +
+        renderHero() +
+        renderStatus() +
+        renderCommands() +
+        renderControls();
+
+      // command click → toggle drawer
+      root.querySelectorAll(".cmd").forEach((c) => {
+        c.addEventListener("click", () => {
+          const id = c.dataset.id;
+          const drawer = root.querySelector(`[data-drawer="${id}"]`);
+          const wasOpen = drawer.classList.contains("open");
+
+          // close all
+          root.querySelectorAll(".cmd.open").forEach((x) => x.classList.remove("open"));
+          root.querySelectorAll(".drawer.open").forEach((x) => x.classList.remove("open"));
+
+          if (!wasOpen) {
+            c.classList.add("open");
+            drawer.classList.add("open");
+            const q = QUEST_DATA.find((x) => x.id == id);
+            showToast(`${q.title} を ひらいた！`);
+          }
+        });
+      });
+
+      // item click → toast
+      root.querySelectorAll(".item").forEach((a) => {
+        a.addEventListener("click", () => {
+          showToast(`${a.dataset.name} へ しゅっぱつ！`);
+        });
+      });
+
+      // controls
+      $("#btn-reload").addEventListener("click", () => {
+        showToast("せかいを さいせいせい...");
+        setTimeout(() => location.reload(), 500);
+      });
+      $("#btn-close").addEventListener("click", () => {
+        showToast("ぼうけんのしょを とじますか？");
+        setTimeout(() => { try { window.close(); } catch (e) { } }, 600);
+      });
+
+      // open first by default for visual richness
+      const first = root.querySelector(".cmd[data-id='1']");
+      if (first) first.click();
+    }
+
+    /* ---------- clock ---------- */
+    function tickClock() {
+      const wk = ["日", "月", "火", "水", "木", "金", "土"];
+      const d = new Date();
+      const pad = (n) => String(n).padStart(2, "0");
+      const t =
+        `${d.getFullYear()}/${pad(d.getMonth() + 1)}/${pad(d.getDate())} ` +
+        `(${wk[d.getDay()]}) ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+      const node = $("#realtime");
+      if (node) node.textContent = t;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      mount();
+      tickClock();
+      setInterval(tickClock, 1000);
+    });
+  </script>
+</body>
+
+</html>
