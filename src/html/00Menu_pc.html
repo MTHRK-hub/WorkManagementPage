@@ -12,6 +12,16 @@
 
   <script src="../js/data.js"></script>
   <script>
+    document.addEventListener('click', function (e) {
+      const summary = e.target.closest('summary');
+      if (!summary) return;
+      const opened = summary.parentElement;
+      document.querySelectorAll('details[open]').forEach(function (d) {
+        if (d !== opened) d.removeAttribute('open');
+      });
+    });
+  </script>
+  <script>
     const root = document.getElementById('menu-root');
     const table = document.createElement('table');
 

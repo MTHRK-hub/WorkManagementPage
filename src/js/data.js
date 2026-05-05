@@ -56,10 +56,10 @@ window.QUEST_DATA = [
         type: "巻物"
       },
       {
-        name: "読書状況",
-        url: "https://docs.google.com/spreadsheets/d/1kb1V3HqryG2IshnOZjsRhJqeo0lUXPPkTJhKw9qsO08/edit?usp=drivesdk",
-        type: "巻物"
+        name: "グランドデザイン",
+        url: "https://docs.google.com/spreadsheets/d/1-lZz9AtqslRSp1wlEB9mvtPyxdpgZZYzUHb4h2LXsTk/edit?usp=drivesdk", type: "巻物"
       },
+
       {
         name: "品川飲み会",
         url: "https://docs.google.com/spreadsheets/d/15SkJ-LR28mYYumOci99zOb8Q37EaF1TE27BSqFsZVAc/edit",
@@ -75,12 +75,9 @@ window.QUEST_DATA = [
         url: "https://docs.google.com/spreadsheets/d/1Vkhp3IT4xuWtroza4i6dfZgrT6nLAqruqpZHEBYCqhY/edit?usp=drivesdk", type: "巻物"
       },
       {
-        name: "グランドデザイン",
-        url: "https://docs.google.com/spreadsheets/d/1-lZz9AtqslRSp1wlEB9mvtPyxdpgZZYzUHb4h2LXsTk/edit?usp=drivesdk", type: "巻物"
-      },
-      {
-        name: "キッチンカー",
-        url: "https://docs.google.com/spreadsheets/d/1UT2wwrEEyI7j5KpHNF12K_o6Z-PX1O5a7yBGCWd2JSw/edit?gid=105223739#gid=105223739", type: "巻物"
+        name: "読書状況",
+        url: "https://docs.google.com/spreadsheets/d/1kb1V3HqryG2IshnOZjsRhJqeo0lUXPPkTJhKw9qsO08/edit?usp=drivesdk",
+        type: "巻物"
       },
     ],
   },
@@ -100,37 +97,37 @@ window.QUEST_DATA = [
     items: [
       {
         name: "原稿作成用",
-        url: "https://drive.google.com/drive/folders/1iR551lpG4Y59mOoQSxAyD0xfItiEXYgz", 
+        url: "https://drive.google.com/drive/folders/1iR551lpG4Y59mOoQSxAyD0xfItiEXYgz",
         type: "宝箱"
       },
       {
         name: "現場関連まとめ",
-        url: "https://docs.google.com/spreadsheets/d/1NsoCzaMaT5qo7ZwU2-A85lASQWbdTPrxoeF31c94V0E/edit?usp=drivesdk", 
+        url: "https://docs.google.com/spreadsheets/d/1NsoCzaMaT5qo7ZwU2-A85lASQWbdTPrxoeF31c94V0E/edit?usp=drivesdk",
         type: "巻物"
       },
       {
         name: "イベント一覧",
-        url: "https://docs.google.com/spreadsheets/d/1dlEkWu87n5RJxrujOrMhz8EWCH0jl5P8tYzkNkbOI5o/edit?usp=drivesdk", 
+        url: "https://docs.google.com/spreadsheets/d/1dlEkWu87n5RJxrujOrMhz8EWCH0jl5P8tYzkNkbOI5o/edit?usp=drivesdk",
         type: "巻物"
       },
       {
         name: "1:1提案リスト",
-        url: "https://docs.google.com/spreadsheets/d/19a71ARGKFoiUuEryILEe3Kf-jFVk7h5k17ExnWj2d0c/edit?usp=drivesdk", 
+        url: "https://docs.google.com/spreadsheets/d/19a71ARGKFoiUuEryILEe3Kf-jFVk7h5k17ExnWj2d0c/edit?usp=drivesdk",
         type: "巻物"
       },
       {
         name: "友達リスト",
-        url: "https://docs.google.com/spreadsheets/d/1zZawNk1mPUO2phUBiAH3pOQUDhxHrL1R2ZH6IHwF22M/edit?usp=drivesdk", 
+        url: "https://docs.google.com/spreadsheets/d/1zZawNk1mPUO2phUBiAH3pOQUDhxHrL1R2ZH6IHwF22M/edit?usp=drivesdk",
         type: "巻物"
       },
       {
         name: "こくちーず",
-        url: "https://www.kokuchpro.com/mypage/", 
+        url: "https://www.kokuchpro.com/mypage/",
         type: "魔導書"
       },
       {
         name: "machicon japan",
-        url: "https://machicon.jp/areas/tokyo/", 
+        url: "https://machicon.jp/areas/tokyo/",
         type: "魔導書"
       },
     ],
@@ -151,22 +148,22 @@ window.QUEST_DATA = [
     items: [
       {
         name: "セミナーメモ",
-        url: "https://drive.google.com/drive/folders/1ml36rQYxN_4Fg24aNVpNMKegYmhR-nK3", 
+        url: "https://drive.google.com/drive/folders/1ml36rQYxN_4Fg24aNVpNMKegYmhR-nK3",
         type: "宝箱"
       },
       {
         name: "読書気づきメモ",
-        url: "https://drive.google.com/drive/folders/11jpLRoiriQ8aOWmMA1x-0LUal3LI2sW_", 
+        url: "https://drive.google.com/drive/folders/11jpLRoiriQ8aOWmMA1x-0LUal3LI2sW_",
         type: "宝箱"
       },
       {
         name: "セミナースタッフ振返りメモ",
-        url: "https://drive.google.com/drive/folders/11lKwJ29eIbmcIhIR4MvuBYO0zVhhimsn", 
+        url: "https://drive.google.com/drive/folders/11lKwJ29eIbmcIhIR4MvuBYO0zVhhimsn",
         type: "宝箱"
       },
       {
         name: "電話報連相メモ",
-        url: "https://drive.google.com/drive/folders/1ko2VL2MRFnnUInnn4Dxi864fPGb0Ieji", 
+        url: "https://drive.google.com/drive/folders/1ko2VL2MRFnnUInnn4Dxi864fPGb0Ieji",
         type: "宝箱"
       },
     ],
@@ -187,12 +184,12 @@ window.QUEST_DATA = [
     items: [
       {
         name: "ASK動画",
-        url: "https://ch.nicovideo.jp/ask-gc", 
+        url: "https://ch.nicovideo.jp/ask-gc",
         type: "魔導書"
       },
       {
         name: "LIFE THEATER",
-        url: "https://life-theater.jp/", 
+        url: "https://life-theater.jp/",
         type: "魔導書"
       },
     ],
@@ -213,22 +210,22 @@ window.QUEST_DATA = [
     items: [
       {
         name: "ブランディング",
-        url: "https://drive.google.com/drive/folders/1DzVZLk49RTNjPk3G9fH5hB6ux9n5AS36", 
+        url: "https://drive.google.com/drive/folders/1DzVZLk49RTNjPk3G9fH5hB6ux9n5AS36",
         type: "宝箱"
       },
       {
         name: "眼トレ",
-        url: "https://youtu.be/LjzgmiNQizc?si=hAIO72Es0kkZY85H", 
+        url: "https://youtu.be/LjzgmiNQizc?si=hAIO72Es0kkZY85H",
         type: "魔導書"
       },
       {
         name: "フェイスライン",
-        url: "https://youtu.be/NV5fKANMzfU?si=a5oJfNiZias0F-0b", 
+        url: "https://youtu.be/NV5fKANMzfU?si=a5oJfNiZias0F-0b",
         type: "魔導書"
       },
       {
         name: "アイメイク",
-        url: "https://youtu.be/0eLnZA-ZMW0?si=LS4Gjm2-AwbSfZkd", 
+        url: "https://youtu.be/0eLnZA-ZMW0?si=LS4Gjm2-AwbSfZkd",
         type: "魔導書"
       },
     ],
@@ -249,17 +246,17 @@ window.QUEST_DATA = [
     items: [
       {
         name: "全体",
-        url: "https://drive.google.com/drive/folders/0ADjfnh2v2S-nUk9PVA", 
+        url: "https://drive.google.com/drive/folders/0ADjfnh2v2S-nUk9PVA",
         type: "宝箱"
       },
       {
         name: "タスク管理表",
-        url: "https://docs.google.com/spreadsheets/d/1QH04_3vLtpthoxl1u8q_EBCdkMHGxfm0FdiffZ0FB-s/edit?usp=drivesdk", 
+        url: "https://docs.google.com/spreadsheets/d/1QH04_3vLtpthoxl1u8q_EBCdkMHGxfm0FdiffZ0FB-s/edit?usp=drivesdk",
         type: "巻物"
       },
       {
         name: "広報用フォルダ",
-        url: "https://drive.google.com/drive/folders/1U-2qOutTsqjKNkB05lIx8ncRmRGJHGF1?usp=drive_link", 
+        url: "https://drive.google.com/drive/folders/1U-2qOutTsqjKNkB05lIx8ncRmRGJHGF1?usp=drive_link",
         type: "宝箱"
       },
     ],
@@ -280,12 +277,12 @@ window.QUEST_DATA = [
     items: [
       {
         name: "音響用フォルダ",
-        url: "https://drive.google.com/drive/folders/11SjlaIJXP06umZlNCS-3tYcCzkk_iHPE?usp=drive_link", 
+        url: "https://drive.google.com/drive/folders/11SjlaIJXP06umZlNCS-3tYcCzkk_iHPE?usp=drive_link",
         type: "宝箱"
       },
       {
         name: "PJ定例資料",
-        url: "https://drive.google.com/drive/folders/12Exm2nAVOJ0M95_fvEE2CNexAMyY-f8S", 
+        url: "https://drive.google.com/drive/folders/12Exm2nAVOJ0M95_fvEE2CNexAMyY-f8S",
         type: "宝箱"
       },
     ],

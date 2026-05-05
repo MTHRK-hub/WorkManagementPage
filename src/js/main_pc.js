@@ -31,6 +31,7 @@ function startGame() {
     pressStart.classList.add('is-hidden');
     titleBlock.classList.add('is-started');
     menuWindow.classList.add('is-visible');
+    document.querySelector('.ufo').classList.add('is-started');
 }
 
 // ------------------------------------------------------------
