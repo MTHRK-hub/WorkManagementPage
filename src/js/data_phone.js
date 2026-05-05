@@ -42,9 +42,9 @@ window.QUEST_DATA = [
   {
     id: 2,
     icon: "♛",
-    name: "ピロきょん",
-    title: "ピロきょん周り",
-    subtitle: "Pirokyon Realm",
+    name: "ピロさん",
+    title: "ピロさん周り",
+    subtitle: "Piro Realm",
     color: "#3956d8",
     border: "#1a2a85",
     glyph: "P",
@@ -75,7 +75,7 @@ window.QUEST_DATA = [
         url: "https://docs.google.com/spreadsheets/d/1Vkhp3IT4xuWtroza4i6dfZgrT6nLAqruqpZHEBYCqhY/edit?usp=drivesdk", type: "巻物"
       },
       {
-        name: "営業代行",
+        name: "グランドデザイン",
         url: "https://docs.google.com/spreadsheets/d/1-lZz9AtqslRSp1wlEB9mvtPyxdpgZZYzUHb4h2LXsTk/edit?usp=drivesdk", type: "巻物"
       },
       {
