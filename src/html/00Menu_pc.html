@@ -1,87 +1,63 @@
-<DOCTYPE html>
-  <html>
+<!DOCTYPE html>
+<html>
 
-  <head>
-    <meta charset="UTF-8">
-    <link href="../css/02Menu_pc.css" rel="stylesheet" />
-    <title>メニュー</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <link href="../css/02Menu_pc.css" rel="stylesheet" />
+  <title>メニュー</title>
+</head>
 
-  <body>
-    <table>
-      <tr>
-        <td width="680">
-          <!-- 01.自己管理 -->
-          <details>
-            <summary class="sum1">自己管理</summary>
-            <iframe class="if1" src="01JikoKanri.html">
-            </iframe>
-          </details>
-        </td>
-        <td width="680">
-          <!-- 02.ピロきょん周り -->
-          <details>
-            <summary class="sum2">ピロきょん周り</summary>
-            <iframe class="if2" src="02PirokyonMawari.html">
-            </iframe>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td width="680">
-          <!-- 03.現場関連 -->
-          <details>
-            <summary class="sum3">現場関連</summary>
-            <iframe class="if3" src="03GenbaKanren.html" width="500" height="200">
-            </iframe>
-          </details>
-        </td>
-        <td width="680">
-          <!-- 04.学びメモ -->
-          <details>
-            <summary class="sum4">学びメモ</summary>
-            <iframe class="if4" src="04ManabiMemo.html" width="500" height="200">
-            </iframe>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td width="680">
-          <!-- 05.学習動画 -->
-          <details>
-            <summary class="sum5">学習動画</summary>
-            <iframe class="if5" src="05GakushuDouga.html" width="500" height="200">
-            </iframe>
-          </details>
-        </td>
-        <td width="680">
-          <!-- 06.自己成長関連 -->
-          <details>
-            <summary class="sum6">自己成長関連</summary>
-            <iframe class="if6" src="06JikoSeichoKanren.html" width="500" height="200">
-            </iframe>
-          </details>
-        </td>
-      </tr>
-      <tr>
-        <td width="680">
-          <!-- 07.tamayomo -->
-          <details>
-            <summary class="sum7">tamayomo</summary>
-            <iframe class="if7" src="07Tamayomo.html" width="500" height="200">
-            </iframe>
-          </details>
-        </td>
-        <td width="680">
-          <!-- 08.音響関連 -->
-          <details>
-            <summary class="sum8">音響関連</summary>
-            <iframe class="if8" src="08OnkyoKanren.html" width="500" height="200">
-            </iframe>
-          </details>
-        </td>
-      </tr>
-    </table>
-  </body>
+<body>
+  <div id="menu-root"></div>
 
-  </html>
+  <script src="../js/data.js"></script>
+  <script>
+    const root = document.getElementById('menu-root');
+    const table = document.createElement('table');
+
+    for (let i = 0; i < QUEST_DATA.length; i += 2) {
+      const row = document.createElement('tr');
+
+      for (let col = 0; col < 2; col++) {
+        const q = QUEST_DATA[i + col];
+        if (!q) break;
+
+        const td = document.createElement('td');
+        const details = document.createElement('details');
+
+        const summary = document.createElement('summary');
+        summary.className = 'sum' + q.id;
+        summary.textContent = q.title;
+        details.appendChild(summary);
+
+        const panel = document.createElement('div');
+        panel.className = 'item-panel if' + q.id;
+
+        const ul = document.createElement('ul');
+        q.items.forEach(function (item) {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.className = 'botton sum' + q.id;
+          a.style.display = 'inline-block';
+          a.href = item.url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = item.name;
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+
+        panel.appendChild(ul);
+        details.appendChild(panel);
+        td.appendChild(details);
+        row.appendChild(td);
+      }
+
+      table.appendChild(row);
+    }
+
+    root.appendChild(table);
+  </script>
+</body>
+
+</html>

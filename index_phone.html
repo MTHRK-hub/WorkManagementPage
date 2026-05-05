@@ -18,7 +18,7 @@
   <main class="book" id="book"></main>
   <div class="toast" id="toast"><span class="arrow">▶</span><span id="toast-text"></span></div>
 
-  <script src="src/js/data_phone.js"></script>
+  <script src="src/js/data.js"></script>
   <script>
     /* ---------- helpers ---------- */
     const $ = (sel, root = document) => root.querySelector(sel);
@@ -90,6 +90,16 @@
       </section>`;
     }
 
+    /* ---------- bottom controls ---------- */
+    function renderControls() {
+      return `
+      <div class="win controls">
+        <span class="corner tr"></span><span class="corner bl"></span>
+        <button class="btn" id="btn-reload"><span class="ic">↻</span>さいよみこみ</button>
+        <button class="btn" id="btn-close"><span class="ic">✕</span>とじる</button>
+      </div>`;
+    }
+
     /* ---------- command list ---------- */
     function renderCommands() {
       const items = QUEST_DATA.map((q, i) => {
@@ -135,16 +145,6 @@
       </div>`;
     }
 
-    /* ---------- bottom controls ---------- */
-    function renderControls() {
-      return `
-      <div class="win controls">
-        <span class="corner tr"></span><span class="corner bl"></span>
-        <button class="btn" id="btn-reload"><span class="ic">↻</span>さいよみこみ</button>
-        <button class="btn" id="btn-close"><span class="ic">✕</span>とじる</button>
-      </div>`;
-    }
-
     /* ---------- mount ---------- */
     function mount() {
       const root = $("#book");
@@ -152,8 +152,8 @@
         renderBanner() +
         renderHero() +
         renderStatus() +
-        renderCommands() +
-        renderControls();
+        renderControls() +
+        renderCommands();
 
       // command click → toggle drawer
       root.querySelectorAll(".cmd").forEach((c) => {
@@ -191,10 +191,6 @@
         showToast("ぼうけんのしょを とじます.");
         setTimeout(() => { try { window.close(); } catch (e) { } }, 600);
       });
-
-      // open first by default for visual richness
-      const first = root.querySelector(".cmd[data-id='1']");
-      if (first) first.click();
     }
 
     /* ---------- clock ---------- */
