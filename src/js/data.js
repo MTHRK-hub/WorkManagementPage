@@ -101,6 +101,11 @@ window.QUEST_DATA = [
         type: "宝箱"
       },
       {
+        name: "アプリデータ",
+        url: "https://docs.google.com/spreadsheets/d/1MmvDvR9hxb_bdda0Zsxr4ZKYeSjG80CQnLvOGPTABYE/edit?usp=drive_link",
+        type: "巻物"
+      },
+      {
         name: "現場関連まとめ",
         url: "https://docs.google.com/spreadsheets/d/1NsoCzaMaT5qo7ZwU2-A85lASQWbdTPrxoeF31c94V0E/edit?usp=drivesdk",
         type: "巻物"
