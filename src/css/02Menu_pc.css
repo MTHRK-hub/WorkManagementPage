@@ -14,42 +14,71 @@
 body {
   margin: 0;
   padding: 6px 8px;
-  background-color: var(--rt-stone-d);
+  background-color: var(--rt-brown-d);
   font-family: 'DotGothic16', 'MS Gothic', monospace;
   color: var(--rt-cream);
   image-rendering: pixelated;
   scrollbar-width: thin;
   scrollbar-color: var(--rt-tan-d) var(--rt-stone-d);
+  position: relative;
+}
+
+/* ── 背景フェードレイヤー ── */
+.bg-layer {
+  position: absolute;
+  top: 0;
+  left: 248px; /* body padding-left(8px) + summary幅(240px) */
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+#bgBack  { z-index: 0; }
+#bgFront { z-index: 1; opacity: 0; transition: opacity 0.6s ease; }
+
+#menu-root {
+  position: relative;
+  z-index: 2;
 }
 
 table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 6px;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 td {
-  width: 50%;
-  vertical-align: top;
+  width: 100%;
+  display: block;
+  padding: 0;
 }
 
+/* ── Details: summary(左) + panel(右) を横並び ── */
 details {
-  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 6px;
 }
 
 /* ── Summary (accordion header) ── */
 summary {
-  display: block;
+  flex: 0 0 240px;
+  width: 240px;
   font-family: 'DotGothic16', monospace;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
-  padding: 7px 12px;
+  padding: 7px 10px;
   cursor: pointer;
   user-select: none;
   border: 3px solid var(--rt-ink);
   color: var(--rt-cream);
   text-align: left;
   transition: transform 60ms steps(2);
+  align-self: stretch;
 }
 
 summary::-webkit-details-marker { display: none; }
@@ -59,51 +88,57 @@ details:not([open]) summary::after {
   content: " ▶";
   float: right;
   font-size: 11px;
-  line-height: 22px;
+  line-height: 20px;
 }
 
 details[open] summary::after {
   content: " ▼";
   float: right;
   font-size: 11px;
-  line-height: 22px;
+  line-height: 20px;
 }
 
-/* ── Item panel ── */
+/* ── Item panel (右側に展開) ── */
 .item-panel {
+  flex: 1;
   border: 3px solid var(--rt-ink);
-  border-top: none;
-  padding: 6px 10px 8px 14px;
+  border-left: none;
+  padding: 5px 10px 6px 10px;
 }
 
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-content: flex-start;
 }
 
 li {
-  margin-top: 5px;
+  margin: 0;
 }
 
 /* ── Link buttons ── */
 a.botton {
   display: inline-block;
   font-family: 'DotGothic16', monospace;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 4px 10px;
   text-decoration: none;
   border: 3px solid var(--rt-ink);
-  width: 100%;
+  width: auto;
   text-align: left;
   cursor: pointer;
   transition: transform 60ms steps(2);
+  white-space: nowrap;
 }
 
 a.botton::before {
   content: "→ ";
-  font-size: 11px;
+  font-size: 10px;
 }
 
 a.botton:hover {

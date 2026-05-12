@@ -8,60 +8,100 @@
 </head>
 
 <body>
+  <!-- 背景フェード用レイヤー（2枚重ね） -->
+  <div id="bgBack"  class="bg-layer"></div>
+  <div id="bgFront" class="bg-layer"></div>
+
   <div id="menu-root"></div>
 
   <script src="../js/data.js"></script>
   <script>
+    /* ---------- 背景クロスフェード ---------- */
+    const BG_IMAGES = [
+      '../image/background1.png',
+      '../image/background2.png',
+      '../image/background3.png',
+    ];
+    let bgIndex = 0;
+    let bgTransitioning = false;
+
+    const bgBack  = document.getElementById('bgBack');
+    const bgFront = document.getElementById('bgFront');
+    bgBack.style.backgroundImage = "url('" + BG_IMAGES[0] + "')";
+
+    function switchBackground() {
+      if (bgTransitioning) return;
+      bgTransitioning = true;
+      bgIndex = (bgIndex + 1) % BG_IMAGES.length;
+      bgFront.style.backgroundImage = "url('" + BG_IMAGES[bgIndex] + "')";
+      bgFront.style.opacity = '1';
+      bgFront.addEventListener('transitionend', function handler() {
+        bgFront.removeEventListener('transitionend', handler);
+        bgBack.style.backgroundImage = bgFront.style.backgroundImage;
+        bgFront.style.transition = 'none';
+        bgFront.style.opacity = '0';
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            bgFront.style.transition = '';
+            bgTransitioning = false;
+          });
+        });
+      });
+    }
+
+    /* ---------- クリック処理 ---------- */
     document.addEventListener('click', function (e) {
       const summary = e.target.closest('summary');
-      if (!summary) return;
-      const opened = summary.parentElement;
-      document.querySelectorAll('details[open]').forEach(function (d) {
-        if (d !== opened) d.removeAttribute('open');
-      });
+      const btn = e.target.closest('a.botton');
+      if (!summary && !btn) return;
+
+      switchBackground();
+
+      if (summary) {
+        const opened = summary.parentElement;
+        document.querySelectorAll('details[open]').forEach(function (d) {
+          if (d !== opened) d.removeAttribute('open');
+        });
+      }
     });
   </script>
   <script>
+    /* ---------- メニュー生成 ---------- */
     const root = document.getElementById('menu-root');
     const table = document.createElement('table');
 
-    for (let i = 0; i < QUEST_DATA.length; i += 2) {
+    for (let i = 0; i < QUEST_DATA.length; i++) {
       const row = document.createElement('tr');
+      const q = QUEST_DATA[i];
 
-      for (let col = 0; col < 2; col++) {
-        const q = QUEST_DATA[i + col];
-        if (!q) break;
+      const td = document.createElement('td');
+      const details = document.createElement('details');
 
-        const td = document.createElement('td');
-        const details = document.createElement('details');
+      const summary = document.createElement('summary');
+      summary.className = 'sum' + q.id;
+      summary.textContent = q.icon + ' ' + q.title;
+      details.appendChild(summary);
 
-        const summary = document.createElement('summary');
-        summary.className = 'sum' + q.id;
-        summary.textContent = q.icon + ' ' + q.title;
-        details.appendChild(summary);
+      const panel = document.createElement('div');
+      panel.className = 'item-panel if' + q.id;
 
-        const panel = document.createElement('div');
-        panel.className = 'item-panel if' + q.id;
+      const ul = document.createElement('ul');
+      q.items.forEach(function (item) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.className = 'botton sum' + q.id;
+        a.href = item.url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.textContent = item.name;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
 
-        const ul = document.createElement('ul');
-        q.items.forEach(function (item) {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
-          a.className = 'botton sum' + q.id;
-          a.style.display = 'inline-block';
-          a.href = item.url;
-          a.target = '_blank';
-          a.rel = 'noopener';
-          a.textContent = item.name;
-          li.appendChild(a);
-          ul.appendChild(li);
-        });
-
-        panel.appendChild(ul);
-        details.appendChild(panel);
-        td.appendChild(details);
-        row.appendChild(td);
-      }
+      panel.appendChild(ul);
+      details.appendChild(panel);
+      td.appendChild(details);
+      row.appendChild(td);
 
       table.appendChild(row);
     }

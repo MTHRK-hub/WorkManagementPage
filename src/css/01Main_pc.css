@@ -348,7 +348,7 @@
      display: block;
      width: 1300px;
      height: 370px;
-     background-color: var(--rt-stone-d);
+     background-color: var(--rt-brown-d);
      border: 4px solid var(--rt-ink);
      box-shadow: inset 0 4px 0 #fff, inset 0 -4px 0 var(--rt-tan-d);
      margin: 0 0 12px 0;
