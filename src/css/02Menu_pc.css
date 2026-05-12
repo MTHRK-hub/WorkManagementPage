@@ -1,124 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+
+:root {
+  --rt-cream:   #f1e4c3;
+  --rt-tan-d:   #8b6a3e;
+  --rt-brown-d: #2e1c0a;
+  --rt-stone-d: #3a342c;
+  --rt-stone-l: #968b78;
+  --rt-ink:     #1a1208;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 6px 8px;
+  background-color: var(--rt-stone-d);
+  font-family: 'DotGothic16', 'MS Gothic', monospace;
+  color: var(--rt-cream);
+  image-rendering: pixelated;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rt-tan-d) var(--rt-stone-d);
+}
+
 table {
-  margin-top: 40px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 6px;
 }
 
 td {
-  width: 630px;
+  width: 50%;
   vertical-align: top;
-  padding-bottom: 60px;
 }
 
+details {
+  margin-bottom: 8px;
+}
+
+/* ── Summary (accordion header) ── */
 summary {
-  font-size: 30px;
-  margin-left: 30px;
-  color: #ffffff;
-  padding-left: 20px;
+  display: block;
+  font-family: 'DotGothic16', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 7px 12px;
+  cursor: pointer;
+  user-select: none;
+  border: 3px solid var(--rt-ink);
+  color: var(--rt-cream);
+  text-align: left;
+  transition: transform 60ms steps(2);
 }
 
-a {
-  color: #ffffff;
+summary::-webkit-details-marker { display: none; }
+summary::marker { display: none; }
+
+details:not([open]) summary::after {
+  content: " ▶";
+  float: right;
+  font-size: 11px;
+  line-height: 22px;
 }
 
+details[open] summary::after {
+  content: " ▼";
+  float: right;
+  font-size: 11px;
+  line-height: 22px;
+}
+
+/* ── Item panel ── */
 .item-panel {
-  margin-left: 75px;
-  width: 550px;
-  padding-top: 5px;
-  padding-bottom: 15px;
+  border: 3px solid var(--rt-ink);
+  border-top: none;
+  padding: 6px 10px 8px 14px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 li {
-  font-size: 25px;
-  margin-top: 20px;
-  margin-left: 10px;
+  margin-top: 5px;
 }
 
-.botton {
-  border-radius: 5px;
+/* ── Link buttons ── */
+a.botton {
+  display: inline-block;
+  font-family: 'DotGothic16', monospace;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
   text-decoration: none;
-  padding-left: 5px;
-  width: 420px;
+  border: 3px solid var(--rt-ink);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 60ms steps(2);
 }
 
-/*メニューバー*/
+a.botton::before {
+  content: "→ ";
+  font-size: 11px;
+}
+
+a.botton:hover {
+  filter: brightness(1.12);
+}
+
+/* ============================================================
+   Active state — collapses the 3D extrusion
+   ============================================================ */
+:is(.sum1,.sum2,.sum3,.sum4,.sum5,.sum6,.sum7,.sum8):active {
+  transform: translate(3px, 3px);
+  box-shadow:
+    inset -3px -3px 0 0 rgba(0,0,0,0.3),
+    inset 3px 3px 0 0 rgba(255,255,255,0.1);
+}
+
+/* ============================================================
+   Category colour schemes
+   ============================================================ */
+
+/* 1 ─ 自己管理 (crimson) */
 .sum1 {
-  background-color: #dc143c;
-  border-bottom: solid 5px rgb(83, 0, 12);
+  background: #a83232;
+  color: var(--rt-cream);
+  box-shadow:
+    inset -3px -3px 0 0 #5a1414,
+    inset 3px 3px 0 0 rgba(255,255,255,0.22),
+    3px 3px 0 0 var(--rt-ink),
+    6px 6px 0 0 var(--rt-brown-d);
 }
+.if1 { background-color: #1e0c0c; }
 
+/* 2 ─ ピロさん (deep blue) */
 .sum2 {
-  background-color: #0000cd;
-  border-bottom: solid 5px #0101ab;
+  background: #2a4a8a;
+  color: var(--rt-cream);
+  box-shadow:
+    inset -3px -3px 0 0 #0a1a4a,
+    inset 3px 3px 0 0 rgba(255,255,255,0.22),
+    3px 3px 0 0 var(--rt-ink),
+    6px 6px 0 0 var(--rt-brown-d);
 }
+.if2 { background-color: #0a1020; }
 
+/* 3 ─ 現場関連 (moss) */
 .sum3 {
-  background-color: #88860b;
-  border-bottom: solid 5px #6a6803;
+  background: #5a7020;
+  color: var(--rt-cream);
+  box-shadow:
+    inset -3px -3px 0 0 #2a3a08,
+    inset 3px 3px 0 0 rgba(255,255,255,0.22),
+    3px 3px 0 0 var(--rt-ink),
+    6px 6px 0 0 var(--rt-brown-d);
 }
+.if3 { background-color: #141a08; }
 
+/* 4 ─ 学びメモ (plum) */
 .sum4 {
-  background-color: #ff33cc;
-  border-bottom: solid 5px #d917a8;
+  background: #8a3a6a;
+  color: var(--rt-cream);
+  box-shadow:
+    inset -3px -3px 0 0 #4a1a3a,
+    inset 3px 3px 0 0 rgba(255,255,255,0.22),
+    3px 3px 0 0 var(--rt-ink),
+    6px 6px 0 0 var(--rt-brown-d);
 }
+.if4 { background-color: #1a0c14; }
 
+/* 5 ─ 学習動画 (burnt orange) */
 .sum5 {
-  background-color: #ff4f02;
-  border-bottom: solid 5px #be430e;
+  background: #a85020;
+  color: var(--rt-cream);
+  box-shadow:
+    inset -3px -3px 0 0 #5a2010,
+    inset 3px 3px 0 0 rgba(255,255,255,0.22),
+    3px 3px 0 0 var(--rt-ink),
+    6px 6px 0 0 var(--rt-brown-d);
 }
+.if5 { background-color: #1a100a; }
 
+/* 6 ─ 自己成長 (dark green) */
 .sum6 {
-  background-color: #228b22;
-  border-bottom: solid 5px #106110;
+  background: #2a6a1a;
+  color: var(--rt-cream);
+  box-shadow:
+    inset -3px -3px 0 0 #0a3a0a,
+    inset 3px 3px 0 0 rgba(255,255,255,0.22),
+    3px 3px 0 0 var(--rt-ink),
+    6px 6px 0 0 var(--rt-brown-d);
 }
+.if6 { background-color: #0a160a; }
 
+/* 7 ─ tamayomo (brown) */
 .sum7 {
-  background-color: #a0522d;
-  border-bottom: solid 5px #6f3d26;
+  background: #6a3a1c;
+  color: var(--rt-cream);
+  box-shadow:
+    inset -3px -3px 0 0 #3a1a08,
+    inset 3px 3px 0 0 rgba(255,255,255,0.22),
+    3px 3px 0 0 var(--rt-ink),
+    6px 6px 0 0 var(--rt-brown-d);
 }
+.if7 { background-color: #160c06; }
 
+/* 8 ─ 音響関連 (purple) */
 .sum8 {
-  background-color: #9932cc;
-  border-bottom: solid 5px #743095;
+  background: #4a2a6a;
+  color: var(--rt-cream);
+  box-shadow:
+    inset -3px -3px 0 0 #2a0a4a,
+    inset 3px 3px 0 0 rgba(255,255,255,0.22),
+    3px 3px 0 0 var(--rt-ink),
+    6px 6px 0 0 var(--rt-brown-d);
 }
-
-:is(.sum1, .sum2, .sum3, .sum4, .sum5, .sum6, .sum7, .sum8):active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  /*下に動く*/
-  transform: translateY(4px);
-  /*影を小さく*/
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
-  border-bottom: none;
-}
-
-/*項目背景*/
-.if1 {
-  background-color: #ffb6c1;
-}
-
-.if2 {
-  background-color: #afeeee;
-}
-
-.if3 {
-  background-color: #eee8aa;
-}
-
-.if4 {
-  background-color: #ffd5ec;
-}
-
-.if5 {
-  background-color: #ffc7af;
-}
-
-.if6 {
-  background-color: #edffbe;
-}
-
-.if7 {
-  background-color: #f0e68c;
-}
-
-.if8 {
-  background-color: #ee82ee;
-}
+.if8 { background-color: #100816; }

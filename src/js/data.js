@@ -102,7 +102,7 @@ window.QUEST_DATA = [
       },
       {
         name: "アプリデータ",
-        url: "https://docs.google.com/spreadsheets/d/1MmvDvR9hxb_bdda0Zsxr4ZKYeSjG80CQnLvOGPTABYE/edit?usp=drive_link",
+        url: "https://drive.google.com/drive/folders/1m-4xyQKJ0PRixZ2dc6gkaopdlgBrZWGN",
         type: "巻物"
       },
       {

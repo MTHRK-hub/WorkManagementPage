@@ -37,7 +37,7 @@
 
         const summary = document.createElement('summary');
         summary.className = 'sum' + q.id;
-        summary.textContent = q.title;
+        summary.textContent = q.icon + ' ' + q.title;
         details.appendChild(summary);
 
         const panel = document.createElement('div');
