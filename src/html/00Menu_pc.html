@@ -14,6 +14,17 @@
 
   <div id="menu-root"></div>
 
+  <!-- ミッション確認ダイアログ -->
+  <div id="mission-dialog" class="mission-dialog" hidden>
+    <div class="mission-dialog__box">
+      <p class="mission-dialog__msg">ミッションを<br>遂行しますか？</p>
+      <div class="mission-dialog__choices">
+        <button class="mission-dialog__btn" id="dlg-yes" tabindex="-1">はい</button>
+        <button class="mission-dialog__btn" id="dlg-no" tabindex="-1">いいえ</button>
+      </div>
+    </div>
+  </div>
+
   <script src="../js/data.js"></script>
   <script>
     /* ---------- 背景クロスフェード ---------- */
@@ -49,20 +60,16 @@
       });
     }
 
-    /* ---------- クリック処理 ---------- */
+    /* ---------- クリック処理（summaryのみ：a.bottonはダイアログ側で処理） ---------- */
     document.addEventListener('click', function (e) {
       const summary = e.target.closest('summary');
-      const btn = e.target.closest('a.botton');
-      if (!summary && !btn) return;
+      if (!summary) return;
 
       switchBackground();
-
-      if (summary) {
-        const opened = summary.parentElement;
-        document.querySelectorAll('details[open]').forEach(function (d) {
-          if (d !== opened) d.removeAttribute('open');
-        });
-      }
+      const opened = summary.parentElement;
+      document.querySelectorAll('details[open]').forEach(function (d) {
+        if (d !== opened) d.removeAttribute('open');
+      });
     });
   </script>
   <script>
@@ -80,6 +87,7 @@
       const summary = document.createElement('summary');
       summary.className = 'sum' + q.id;
       summary.textContent = q.icon + ' ' + q.title;
+      summary.tabIndex = -1;
       details.appendChild(summary);
 
       const panel = document.createElement('div');
@@ -93,6 +101,7 @@
         a.href = item.url;
         a.target = '_blank';
         a.rel = 'noopener';
+        a.tabIndex = -1;
         a.textContent = item.name;
         li.appendChild(a);
         ul.appendChild(li);
@@ -107,6 +116,202 @@
     }
 
     root.appendChild(table);
+  </script>
+  <script>
+    /* ---------- キーボード（十字キー）操作 ---------- */
+    (function () {
+      const CAT_COUNT = QUEST_DATA.length;
+      let catIdx  = 0;
+      let itemIdx = -1; // -1 = summary にフォーカス
+      let kbActive = true;
+
+      const detailsEls = Array.from(document.querySelectorAll('details'));
+
+      function getItems(ci) {
+        return Array.from(detailsEls[ci].querySelectorAll('a.botton'));
+      }
+
+      function clearFocus() {
+        document.querySelectorAll('.kb-focus').forEach(function (el) {
+          el.classList.remove('kb-focus');
+        });
+      }
+
+      function applyFocus() {
+        clearFocus();
+        if (!kbActive) return;
+        if (itemIdx === -1) {
+          var sum = detailsEls[catIdx].querySelector('summary');
+          sum.classList.add('kb-focus');
+          sum.scrollIntoView({ block: 'nearest' });
+        } else {
+          var items = getItems(catIdx);
+          if (items[itemIdx]) {
+            items[itemIdx].classList.add('kb-focus');
+            items[itemIdx].scrollIntoView({ block: 'nearest' });
+          }
+        }
+      }
+
+      function openCategory(ci) {
+        detailsEls.forEach(function (d, i) {
+          if (i !== ci) d.removeAttribute('open');
+        });
+        detailsEls[ci].setAttribute('open', '');
+        switchBackground();
+      }
+
+      /* --- ミッション確認ダイアログ --- */
+      var dialogEl     = document.getElementById('mission-dialog');
+      var dialogOpen   = false;
+      var dialogHref   = '';
+      var dialogChoice = 0; // 0=はい, 1=いいえ
+
+      function updateDialogFocus() {
+        document.getElementById('dlg-yes').classList.toggle('kb-focus', dialogChoice === 0);
+        document.getElementById('dlg-no').classList.toggle('kb-focus', dialogChoice === 1);
+      }
+
+      function showDialog(href) {
+        clearFocus();
+        dialogHref   = href;
+        dialogOpen   = true;
+        dialogChoice = 0;
+        updateDialogFocus();
+        dialogEl.removeAttribute('hidden');
+        document.body.focus(); // ダイアログ中はiframeがキーを受け取る
+      }
+
+      function closeDialog() {
+        dialogOpen = false;
+        dialogEl.setAttribute('hidden', '');
+        applyFocus();
+      }
+
+      function confirmDialog() {
+        var href = dialogHref;
+        closeDialog();
+        switchBackground();
+        window.open(href, '_blank', 'noopener');
+      }
+
+      function processKey(key) {
+        if (!kbActive) {
+          kbActive = true;
+          var openIdx = detailsEls.findIndex(function (d) { return d.hasAttribute('open'); });
+          if (openIdx >= 0) { catIdx = openIdx; itemIdx = -1; }
+        }
+
+        // ダイアログ表示中はダイアログ操作のみ受け付ける
+        if (dialogOpen) {
+          switch (key) {
+            case 'ArrowLeft': case 'ArrowUp':
+              dialogChoice = 0; updateDialogFocus(); break;
+            case 'ArrowRight': case 'ArrowDown':
+              dialogChoice = 1; updateDialogFocus(); break;
+            case 'Enter':
+              if (dialogChoice === 0) confirmDialog(); else closeDialog(); break;
+          }
+          return;
+        }
+
+        switch (key) {
+          case 'ArrowUp':
+            if (itemIdx === -1) {
+              catIdx = (catIdx - 1 + CAT_COUNT) % CAT_COUNT;
+            } else {
+              itemIdx = -1;
+            }
+            break;
+
+          case 'ArrowDown':
+            if (itemIdx === -1) {
+              catIdx = (catIdx + 1) % CAT_COUNT;
+            } else {
+              itemIdx = -1;
+              catIdx = (catIdx + 1) % CAT_COUNT;
+            }
+            break;
+
+          case 'ArrowRight':
+            if (itemIdx === -1) {
+              if (!detailsEls[catIdx].hasAttribute('open')) openCategory(catIdx);
+              var items = getItems(catIdx);
+              if (items.length > 0) itemIdx = 0;
+            } else {
+              var items = getItems(catIdx);
+              if (itemIdx < items.length - 1) itemIdx++;
+            }
+            break;
+
+          case 'ArrowLeft':
+            if (itemIdx > 0) {
+              itemIdx--;
+            } else if (itemIdx === 0) {
+              itemIdx = -1;
+            }
+            break;
+
+          case 'Enter':
+            if (itemIdx === -1) {
+              detailsEls[catIdx].querySelector('summary').click();
+            } else {
+              var items = getItems(catIdx);
+              if (items[itemIdx]) showDialog(items[itemIdx].href);
+            }
+            break;
+        }
+
+        applyFocus();
+      }
+
+      // bodyをフォーカス可能にする（startGame()後の focus() 呼び出し用）
+      document.body.tabIndex = -1;
+      applyFocus();
+
+      // iframeにフォーカスがある場合のキー入力
+      document.addEventListener('keydown', function (e) {
+        // TabキーでTopbarボタンへフォーカス移動
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          try {
+            var btns = window.parent.document.querySelectorAll('input.botton');
+            if (btns.length > 0) (e.shiftKey ? btns[btns.length - 1] : btns[0]).focus();
+          } catch (err) {}
+          return;
+        }
+        if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter'].includes(e.key)) return;
+        e.preventDefault();
+        processKey(e.key);
+      });
+
+      // 親ページのボタンにフォーカスがある場合のpostMessage経由のキー入力
+      window.addEventListener('message', function (e) {
+        if (!e.data || e.data.type !== 'menuKey') return;
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter'].includes(e.data.key)) {
+          processKey(e.data.key);
+        }
+      });
+
+      // マウス操作時はKBフォーカスを非表示
+      document.addEventListener('pointerdown', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        kbActive = false;
+        clearFocus();
+      });
+
+      // a.bottonクリック → ダイアログ表示
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest('a.botton');
+        if (!btn) return;
+        e.preventDefault();
+        showDialog(btn.href);
+      });
+
+      // ダイアログボタンのクリック
+      document.getElementById('dlg-yes').addEventListener('click', confirmDialog);
+      document.getElementById('dlg-no').addEventListener('click', closeDialog);
+    })();
   </script>
 </body>
 

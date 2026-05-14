@@ -21,6 +21,8 @@ function shutdown() {
 // ------------------------------------------------------------
 // PRESS START → メニュー表示へ
 // ------------------------------------------------------------
+var gameJustStarted = false;
+
 function startGame() {
     var pressStart = document.getElementById('pressStart');
     var menuWindow = document.getElementById('menuWindow');
@@ -32,6 +34,17 @@ function startGame() {
     titleBlock.classList.add('is-started');
     menuWindow.classList.add('is-visible');
     document.querySelector('.ufo').classList.add('is-started');
+
+    // 起動したEnterキーがiframeに転送されないようフラグを立て、
+    // display:none解除後にiframeへフォーカスを移す
+    gameJustStarted = true;
+    setTimeout(function () {
+        gameJustStarted = false;
+        var iframe = document.querySelector('.menu-iframe');
+        if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.document.body.focus();
+        }
+    }, 0);
 }
 
 // ------------------------------------------------------------
@@ -45,6 +58,47 @@ window.onload = function () {
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
             startGame();
+        }
+    });
+
+    // Tabキーをページ内でトラップ（ブラウザUIへの移動を防止）
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        e.preventDefault();
+        var buttons = Array.from(document.querySelectorAll('input.botton')).filter(function (btn) {
+            return btn.offsetParent !== null; // display:none を除外
+        });
+        if (buttons.length === 0) return;
+        var cur = buttons.indexOf(document.activeElement);
+        var next = e.shiftKey
+            ? (cur <= 0 ? buttons.length - 1 : cur - 1)
+            : (cur >= buttons.length - 1 ? 0 : cur + 1);
+        buttons[next].focus();
+    });
+
+    // 十字キーをメニューiframeへpostMessageで転送
+    document.addEventListener('keydown', function (e) {
+        if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+        e.preventDefault();
+        var iframe = document.querySelector('.menu-iframe');
+        if (iframe && iframe.contentWindow) {
+            iframe.contentWindow.postMessage({ type: 'menuKey', key: e.key }, '*');
+        }
+    });
+
+    // Enterキー：ボタンフォーカス中（Tab後）はボタン実行、それ以外（十字キー後）はメニュー選択
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter') return;
+        if (!document.getElementById('menuWindow').classList.contains('is-visible')) return;
+        if (gameJustStarted) return; // 起動に使ったEnterはメニューに流さない
+        if (document.activeElement && document.activeElement.matches('input.botton')) {
+            document.activeElement.click();
+        } else {
+            e.preventDefault();
+            var iframe = document.querySelector('.menu-iframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage({ type: 'menuKey', key: 'Enter' }, '*');
+            }
         }
     });
 };
