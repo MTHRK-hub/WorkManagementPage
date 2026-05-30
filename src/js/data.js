@@ -225,7 +225,7 @@ window.QUEST_DATA = [
       },
       {
         name: "フェイスライン",
-        url: "https://youtu.be/NV5fKANMzfU?si=a5oJfNiZias0F-0b",
+        url: "https://www.youtube.com/watch?v=8hFfzFe4qg4",
         type: "魔導書"
       },
       {
