@@ -264,6 +264,11 @@ window.QUEST_DATA = [
         url: "https://drive.google.com/drive/folders/1U-2qOutTsqjKNkB05lIx8ncRmRGJHGF1?usp=drive_link",
         type: "宝箱"
       },
+      {
+        name: "Instagramまとめ",
+        url: "https://docs.google.com/spreadsheets/d/1C_8R9g1SpvBi6d_dbfN9qdu5Dxmk7H-hgqOtE8JHXec/edit?usp=drive_link",
+        type: "宝箱"
+      },
     ],
   },
   // ------------------------------------------------------------
