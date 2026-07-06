@@ -219,20 +219,10 @@ window.QUEST_DATA = [
         type: "宝箱"
       },
       {
-        name: "眼トレ",
-        url: "https://youtu.be/LjzgmiNQizc?si=hAIO72Es0kkZY85H",
+        name: "肉体改善記録",
+        url: "https://docs.google.com/spreadsheets/d/1_PNPe_wO6AvWR9gCjoWkX0WOXFuIifLhg_3nDkTbiRo/edit?gid=870400401#gid=870400401",
         type: "魔導書"
-      },
-      {
-        name: "フェイスライン",
-        url: "https://www.youtube.com/watch?v=8hFfzFe4qg4",
-        type: "魔導書"
-      },
-      {
-        name: "アイメイク",
-        url: "https://youtu.be/0eLnZA-ZMW0?si=LS4Gjm2-AwbSfZkd",
-        type: "魔導書"
-      },
+      }
     ],
   },
   // ------------------------------------------------------------
