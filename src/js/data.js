@@ -220,7 +220,7 @@ window.QUEST_DATA = [
       },
       {
         name: "肉体改善記録",
-        url: "https://docs.google.com/spreadsheets/d/1_PNPe_wO6AvWR9gCjoWkX0WOXFuIifLhg_3nDkTbiRo/edit?gid=870400401#gid=870400401",
+        url: "https://drive.google.com/drive/folders/1bTR7PUHqUdZE2tVLOunM_U7eYdrd19Gx?usp=drive_link",
         type: "魔導書"
       }
     ],
