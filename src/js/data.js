@@ -15,6 +15,11 @@ window.QUEST_DATA = [
     desc: "じぶんのからだとおかねをととのえる",
     items: [
       {
+        name: "マイドライブ",
+        url: "https://drive.google.com/drive/my-drive",
+        type: "宝箱"
+      },
+      {
         name: "セルフチェックリスト",
         url: "https://docs.google.com/spreadsheets/d/1L7ztEM3AZoOeW87taYQBvHjwc_LSkGBjav_zp0pqGsY/edit?usp=drivesd",
         type: "巻物"
