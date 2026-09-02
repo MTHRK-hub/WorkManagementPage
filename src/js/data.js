@@ -64,7 +64,10 @@ window.QUEST_DATA = [
         name: "グランドデザイン",
         url: "https://docs.google.com/spreadsheets/d/1-lZz9AtqslRSp1wlEB9mvtPyxdpgZZYzUHb4h2LXsTk/edit?usp=drivesdk", type: "巻物"
       },
-
+      {
+        name: "ピロさんシェアまとめ",
+        url: "https://docs.google.com/spreadsheets/d/10wsDOkjGg1cAXGf6sDn4Vt_vXdqSrb0DU5kh3Je5gu4/edit?gid=0#gid=0", type: "巻物"
+      },
       {
         name: "品川飲み会",
         url: "https://docs.google.com/spreadsheets/d/15SkJ-LR28mYYumOci99zOb8Q37EaF1TE27BSqFsZVAc/edit",
