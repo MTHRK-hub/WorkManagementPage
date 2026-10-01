@@ -104,6 +104,11 @@ window.QUEST_DATA = [
     desc: "せかいをかけめぐる いくさのきろく",
     items: [
       {
+        name: "報連相下書き作成",
+        url: "https://docs.google.com/spreadsheets/d/1ipOvA8VD6DK-470a-eNWo0YElVA9SMjMA31CpEW6CBo/edit?usp=drive_link",
+        type: "宝箱"
+      },
+      {
         name: "原稿作成用",
         url: "https://drive.google.com/drive/folders/1iR551lpG4Y59mOoQSxAyD0xfItiEXYgz",
         type: "宝箱"
