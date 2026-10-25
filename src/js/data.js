@@ -69,8 +69,13 @@ window.QUEST_DATA = [
         url: "https://docs.google.com/spreadsheets/d/10wsDOkjGg1cAXGf6sDn4Vt_vXdqSrb0DU5kh3Je5gu4/edit?gid=0#gid=0", type: "巻物"
       },
       {
-        name: "品川飲み会",
+        name: "ミートアップ",
         url: "https://docs.google.com/spreadsheets/d/15SkJ-LR28mYYumOci99zOb8Q37EaF1TE27BSqFsZVAc/edit",
+        type: "巻物"
+      },
+      {
+        name: "各種フォーマット",
+        url: "https://docs.google.com/document/d/1_zo1nt08pJXLrmf6cvCV20ITXrNGkzLGfVvpC7NUSNc/edit?usp=drive_link",
         type: "巻物"
       },
       {
