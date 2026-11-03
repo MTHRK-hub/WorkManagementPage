@@ -30,6 +30,11 @@ window.QUEST_DATA = [
         type: "魔導書"
       },
       {
+        name: "スケジュール登録",
+        url: "https://docs.google.com/spreadsheets/d/17FYv7S4mKTplCuzuT2FuFUDF6KjzV8trJjfnV_yWChc/edit?gid=0#gid=0",
+        type: "巻物"
+      },
+      {
         name: "アプリデータ",
         url: "https://drive.google.com/drive/folders/1m-4xyQKJ0PRixZ2dc6gkaopdlgBrZWGN",
         type: "巻物"
