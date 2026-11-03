@@ -1,18 +1,18 @@
 // RPG風メニュー データ
 window.QUEST_DATA = [
   // ------------------------------------------------------------
-  // 1. 自己管理
+  // 1. 各種ツール
   // ------------------------------------------------------------
   {
     id: 1,
     icon: "⚔",
-    name: "じこかんり",
-    title: "自己管理",
-    subtitle: "Self Management",
+    name: "ツール",
+    title: "各種ツール",
+    subtitle: "Tool Arsenal",
     color: "#dc143c",
     border: "#7a0014",
     glyph: "S",
-    desc: "じぶんのからだとおかねをととのえる",
+    desc: "たびに やくだつ どうぐの かずかず",
     items: [
       {
         name: "マイドライブ",
@@ -20,23 +20,18 @@ window.QUEST_DATA = [
         type: "宝箱"
       },
       {
-        name: "セルフチェックリスト",
-        url: "https://docs.google.com/spreadsheets/d/1L7ztEM3AZoOeW87taYQBvHjwc_LSkGBjav_zp0pqGsY/edit?usp=drivesd",
-        type: "巻物"
-      },
-      {
-        name: "Zaim",
-        url: "https://play.google.com/store/apps/details?id=net.zaim.android",
+        name: "現場記録簿",
+        url: "https://mthrk-hub.github.io/SiteLog/src/html/SCR-00-00.html",
         type: "魔導書"
       },
       {
-        name: "キャッシュフロー",
-        url: "https://docs.google.com/spreadsheets/d/1Bp4dvFajcnMUcyhbR618TauQCx09ZV_KOjcdBeYZalk/edit?usp=drivesdk",
-        type: "巻物"
+        name: "収支入力",
+        url: "https://mthrk-hub.github.io/SiteLog/SCR-07-99.html",
+        type: "魔導書"
       },
       {
-        name: "生活習慣マニュアル",
-        url: "https://docs.google.com/spreadsheets/d/1fqvbx0jEUSyjI2ziYMphkVollzZhhIokLDf5unN4Nfs/edit?usp=drivesdk",
+        name: "アプリデータ",
+        url: "https://drive.google.com/drive/folders/1m-4xyQKJ0PRixZ2dc6gkaopdlgBrZWGN",
         type: "巻物"
       },
     ],
@@ -78,20 +73,6 @@ window.QUEST_DATA = [
         url: "https://docs.google.com/document/d/1_zo1nt08pJXLrmf6cvCV20ITXrNGkzLGfVvpC7NUSNc/edit?usp=drive_link",
         type: "巻物"
       },
-      {
-        name: "SOHO清掃チェックリスト",
-        url: "https://docs.google.com/spreadsheets/d/1MqDRe7ESXj77ei1qfgR-_CJNdlDNojteem4Zh42KIc8/edit?usp=drivesdk",
-        type: "巻物"
-      },
-      {
-        name: "SOHO style予約",
-        url: "https://docs.google.com/spreadsheets/d/1Vkhp3IT4xuWtroza4i6dfZgrT6nLAqruqpZHEBYCqhY/edit?usp=drivesdk", type: "巻物"
-      },
-      {
-        name: "読書状況",
-        url: "https://docs.google.com/spreadsheets/d/1kb1V3HqryG2IshnOZjsRhJqeo0lUXPPkTJhKw9qsO08/edit?usp=drivesdk",
-        type: "巻物"
-      },
     ],
   },
   // ------------------------------------------------------------
@@ -109,19 +90,14 @@ window.QUEST_DATA = [
     desc: "せかいをかけめぐる いくさのきろく",
     items: [
       {
-        name: "報連相下書き作成",
-        url: "https://docs.google.com/spreadsheets/d/1ipOvA8VD6DK-470a-eNWo0YElVA9SMjMA31CpEW6CBo/edit?usp=drive_link",
-        type: "宝箱"
-      },
-      {
         name: "原稿作成用",
         url: "https://drive.google.com/drive/folders/1iR551lpG4Y59mOoQSxAyD0xfItiEXYgz",
         type: "宝箱"
       },
       {
-        name: "アプリデータ",
-        url: "https://drive.google.com/drive/folders/1m-4xyQKJ0PRixZ2dc6gkaopdlgBrZWGN",
-        type: "巻物"
+        name: "報連相下書き作成",
+        url: "https://docs.google.com/spreadsheets/d/1ipOvA8VD6DK-470a-eNWo0YElVA9SMjMA31CpEW6CBo/edit?usp=drive_link",
+        type: "宝箱"
       },
       {
         name: "現場関連まとめ",
@@ -137,21 +113,6 @@ window.QUEST_DATA = [
         name: "1:1提案リスト",
         url: "https://docs.google.com/spreadsheets/d/19a71ARGKFoiUuEryILEe3Kf-jFVk7h5k17ExnWj2d0c/edit?usp=drivesdk",
         type: "巻物"
-      },
-      {
-        name: "友達リスト",
-        url: "https://docs.google.com/spreadsheets/d/1zZawNk1mPUO2phUBiAH3pOQUDhxHrL1R2ZH6IHwF22M/edit?usp=drivesdk",
-        type: "巻物"
-      },
-      {
-        name: "こくちーず",
-        url: "https://www.kokuchpro.com/mypage/",
-        type: "魔導書"
-      },
-      {
-        name: "machicon japan",
-        url: "https://machicon.jp/areas/tokyo/",
-        type: "魔導書"
       },
     ],
   },
