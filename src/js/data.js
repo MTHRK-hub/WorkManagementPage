@@ -104,16 +104,6 @@ window.QUEST_DATA = [
         url: "https://docs.google.com/spreadsheets/d/1NsoCzaMaT5qo7ZwU2-A85lASQWbdTPrxoeF31c94V0E/edit?usp=drivesdk",
         type: "巻物"
       },
-      {
-        name: "イベント一覧",
-        url: "https://docs.google.com/spreadsheets/d/1dlEkWu87n5RJxrujOrMhz8EWCH0jl5P8tYzkNkbOI5o/edit?usp=drivesdk",
-        type: "巻物"
-      },
-      {
-        name: "1:1提案リスト",
-        url: "https://docs.google.com/spreadsheets/d/19a71ARGKFoiUuEryILEe3Kf-jFVk7h5k17ExnWj2d0c/edit?usp=drivesdk",
-        type: "巻物"
-      },
     ],
   },
   // ------------------------------------------------------------
