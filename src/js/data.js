@@ -36,7 +36,7 @@ window.QUEST_DATA = [
       },
       {
         name: "アプリデータ",
-        url: "https://drive.google.com/drive/folders/1m-4xyQKJ0PRixZ2dc6gkaopdlgBrZWGN",
+        url: "https://drive.google.com/drive/folders/123XizAu7mdrw-R1e_l46STdJo3YDeBXF?usp=drive_link",
         type: "巻物"
       },
     ],
