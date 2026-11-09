@@ -57,7 +57,7 @@ window.QUEST_DATA = [
     items: [
       {
         name: "販売日情報",
-        url: "hhttps://docs.google.com/spreadsheets/d/1qw6lvXaYjkNVwQCORpxwXZ4xU64zL84TNu-demp2xfE/edit?gid=0#gid=0",
+        url: "https://docs.google.com/spreadsheets/d/1qw6lvXaYjkNVwQCORpxwXZ4xU64zL84TNu-demp2xfE/edit?gid=0#gid=0",
         type: "巻物"
       },
       {
