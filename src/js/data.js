@@ -56,8 +56,8 @@ window.QUEST_DATA = [
     desc: "なかまとともにあゆむクエスト",
     items: [
       {
-        name: "先行投資予約",
-        url: "https://docs.google.com/spreadsheets/d/1uZI96a2gi-7IVjx6NIznIYqfN2L9lKS3D3vvgHmyJcE/edit?usp=drivesdk",
+        name: "販売日情報",
+        url: "hhttps://docs.google.com/spreadsheets/d/1qw6lvXaYjkNVwQCORpxwXZ4xU64zL84TNu-demp2xfE/edit?gid=0#gid=0",
         type: "巻物"
       },
       {
