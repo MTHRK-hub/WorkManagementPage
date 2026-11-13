@@ -56,8 +56,8 @@ window.QUEST_DATA = [
     desc: "なかまとともにあゆむクエスト",
     items: [
       {
-        name: "販売日情報",
-        url: "https://docs.google.com/spreadsheets/d/1qw6lvXaYjkNVwQCORpxwXZ4xU64zL84TNu-demp2xfE/edit?gid=0#gid=0",
+        name: "先行投資",
+        url: "https://docs.google.com/spreadsheets/d/1qw6lvXaYjkNVwQCORpxwXZ4xU64zL84TNu-demp2xfE/edit?usp=drive_link",
         type: "巻物"
       },
       {
@@ -194,7 +194,7 @@ window.QUEST_DATA = [
       },
       {
         name: "肉体改善記録",
-        url: "https://drive.google.com/drive/folders/1bTR7PUHqUdZE2tVLOunM_U7eYdrd19Gx?usp=drive_link",
+        url: "https://claude.ai/artifact/JHhBBmxUx7C3FYGpoif9D5",
         type: "魔導書"
       }
     ],
@@ -232,6 +232,11 @@ window.QUEST_DATA = [
         name: "Instagramまとめ",
         url: "https://docs.google.com/spreadsheets/d/1C_8R9g1SpvBi6d_dbfN9qdu5Dxmk7H-hgqOtE8JHXec/edit?usp=drive_link",
         type: "宝箱"
+      },
+      {
+        name: "投稿チェッカー",
+        url: "https://claude.ai/code/artifact/29084bba-fc15-43e2-a9eb-7e38ac889b24",
+        type: "魔導書"
       },
     ],
   },
