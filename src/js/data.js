@@ -193,6 +193,11 @@ window.QUEST_DATA = [
         type: "宝箱"
       },
       {
+        name: "note運用手帳",
+        url: "https://claude.ai/artifact/31rtS8nxfLpjNZy4i3Mz9p",
+        type: "魔導書"
+      },
+      {
         name: "肉体改善記録",
         url: "https://claude.ai/artifact/JHhBBmxUx7C3FYGpoif9D5",
         type: "魔導書"
